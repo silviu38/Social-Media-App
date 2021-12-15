@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style_login.css" />
+    <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrit
+      y="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      c
+      rossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Log In</h2>
+      </div>
+      <form id="form" class="form">
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="form-field">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="button" class="button_log" onclick="login()">
+          Log In
+        </button>
+      </form>
+    </div>
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.6.0/validator.min.js"></script>
+    <script>
+     
+      function login() {
+        const elementEmail = document.getElementById("email");
+        const elementPassword = document.getElementById("password");
+
+        if (
+          validator.isEmail(elementEmail.value) && elementPassword.value.length > 0) {
+          fetch("https://reqres.in/api/login", {
+            method: "post",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({
+              email: elementEmail.value,
+              password: elementPassword.value,
+            }),
+          })
+            .then((response) => response.json())
+            .then((infoLogin) => {
+              if (infoLogin.error) {
+                alert("Nu te-ai putut loga!");
+              }
+              if (infoLogin.token) {
+                window.localStorage.setItem("token", infoLogin.token);
+                window.location.href= "./index.html";
+              }
+            });
+        }
+      }
+    </script>
+  </body>
+</html>

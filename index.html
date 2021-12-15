@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+            <link rel="stylesheet" href="./styles/layout.css">
+            <link rel="stylesheet" href="./styles/header.css">
+            <link rel="stylesheet" href="./styles/post.css">
+            <script
+                src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrit
+                y="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                c
+                rossorigin="anonymous"
+            ></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"
+            ></script>
+            <script src="bootstrap/js/bootstrap.min.js"></script>
+            <script src="https://unpkg.com/feather-icons"></script>
+    </head>
+    <body>
+        <div class="header background-black">
+            <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <div class="col-12 col-sm-4">
+                        <div class="search-group">
+                            <img
+                                src="https://icons-for-free.com/iconfiles/png/512/color+facebook+icon-1320168272811213233.png"
+                                alt="facebook logo"
+                                class="logo">
+                                <div class="search-container">
+                                    <i class="search-icon" data-feather="search"></i>
+                                    <input type="text" placeholder="Search..." size="25" class="search">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <div class="head-links-group">
+                            <div class="head-icon-link"><i data-feather="home"></i></div>
+                            <div class="head-icon-link"><i data-feather="youtube"></i></div>
+                            <div class="head-icon-link"><i data-feather="bookmark"></i></div>
+                            <div class="head-icon-link"><i data-feather="users"></i></div>
+                            <div class="head-icon-link"><i data-feather="grid"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <div class="account-group">
+                            <div class="account-logo">
+                                <img src="https://picsum.photos/200" alt="account image">
+                                Silviu
+                            </div>
+                            <div class="account-action-group">
+                                <div class="account-icon"><i data-feather="plus"></i></div>
+                                <div class="account-icon"><i data-feather="message-circle"></i></div>
+                                <div class="account-icon"><i data-feather="bell"></i></div>
+                                <div class="account-icon" onclick="logout()"><i data-feather="log-out"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid margin-header">
+            <div class="row">
+                <div class="col-4">Links</div>
+                <div id="sectiune_postari" class="col-4">
+                  <!-- Continut inserat cu Javascript! -->
+                </div>
+                <div class="col-4">Chat</div>
+            </div>
+        </div>
+
+
+
+        <script>
+            feather.replace();
+        </script>
+        <script src="content.js"></script>
+    </body>
+</html>
